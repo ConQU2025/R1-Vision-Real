@@ -1,0 +1,8 @@
+prefix=/home/rc/R1_Vision_Real/devel
+
+Name: conqu
+Description: Description of conqu
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
