@@ -1,0 +1,29 @@
+<launch>
+    <!-- 启动 serial_node 节点 -->
+    <node pkg="conqu" type="serial_node" name="serial_ser_pub" output="screen" />
+
+    <!-- 启动 data_pro 节点 -->
+    <node pkg="conqu" type="data_pro" name="data_pro_node" output="screen" />
+
+    <!-- 启动 calculate 节点 -->
+    <node pkg="conqu" type="calculate" name="calculate_node" output="screen" />
+
+    <!-- IMU 类型参数 -->
+    <arg name="type" default="normal" doc="type [normal, modbus]"/>
+    
+    <!-- 启动 IMU 节点 -->
+    <node pkg="wit_ros_imu" type="wit_$(arg type)_ros.py" name="imu" output="screen">
+        <param name="port" value="/dev/ttyUSB1"/>
+        <param name="baud" value="9600"/>
+    </node>
+
+    <!-- 启动 odometry（里程计）节点，延时 2 秒，等待前面节点就绪 -->
+    <node pkg="conqu" type="odometry" name="odometry_node" output="screen"
+          launch-prefix="bash -c 'sleep 2; exec'">
+        <param name="wheel_radius" value="0.05" />
+        <param name="wheel_base" value="0.3" />
+        <param name="encoder_resolution" value="1000" />
+        <param name="encoder_to_meters" value="0.001" />
+    </node>
+
+</launch>

@@ -358,6 +358,9 @@ LSB_RELEASE_EXECUTABLE:FILEPATH=/usr/bin/lsb_release
 //Path to a program.
 NOSETESTS:FILEPATH=/usr/bin/nosetests3
 
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
+
 //Path to a program.
 PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3
 
@@ -608,6 +611,9 @@ rostime_DIR:PATH=/opt/ros/noetic/share/rostime/cmake
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/noetic/share/sensor_msgs/cmake
 
+//The directory containing a CMake configuration file for serial.
+serial_DIR:PATH=/opt/ros/noetic/share/serial/cmake
+
 //The directory containing a CMake configuration file for smclib.
 smclib_DIR:PATH=/opt/ros/noetic/share/smclib/cmake
 
@@ -838,6 +844,8 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake][c ][v1.71.0()]
 //Details about finding PY_em
 FIND_PACKAGE_MESSAGE_DETAILS_PY_em:INTERNAL=[/usr/lib/python3/dist-packages/em.py][v()]
+//Details about finding PkgConfig
+FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python3][v3.8.10()]
 //Details about finding Threads
@@ -870,14 +878,42 @@ GTEST_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 GTEST_MAIN_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTEST_MAIN_LIBRARY_DEBUG
 GTEST_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //This needs to be in PYTHONPATH when 'setup.py install' is called.
 //  And it needs to match.  But setuptools won't tell us where
 // it will install things.
 PYTHON_INSTALL_DIR:INTERNAL=lib/python3/dist-packages
+SERIAL_CFLAGS:INTERNAL=
+SERIAL_CFLAGS_I:INTERNAL=
+SERIAL_CFLAGS_OTHER:INTERNAL=
+SERIAL_FOUND:INTERNAL=
+SERIAL_INCLUDEDIR:INTERNAL=
+SERIAL_LIBDIR:INTERNAL=
+SERIAL_LIBS:INTERNAL=
+SERIAL_LIBS_L:INTERNAL=
+SERIAL_LIBS_OTHER:INTERNAL=
+SERIAL_LIBS_PATHS:INTERNAL=
+SERIAL_MODULE_NAME:INTERNAL=
+SERIAL_PREFIX:INTERNAL=
+SERIAL_STATIC_CFLAGS:INTERNAL=
+SERIAL_STATIC_CFLAGS_I:INTERNAL=
+SERIAL_STATIC_CFLAGS_OTHER:INTERNAL=
+SERIAL_STATIC_LIBDIR:INTERNAL=
+SERIAL_STATIC_LIBS:INTERNAL=
+SERIAL_STATIC_LIBS_L:INTERNAL=
+SERIAL_STATIC_LIBS_OTHER:INTERNAL=
+SERIAL_STATIC_LIBS_PATHS:INTERNAL=
+SERIAL_VERSION:INTERNAL=
+SERIAL_libserial_INCLUDEDIR:INTERNAL=
+SERIAL_libserial_LIBDIR:INTERNAL=
+SERIAL_libserial_PREFIX:INTERNAL=
+SERIAL_libserial_VERSION:INTERNAL=
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/home/rc/R1_Vision_Real/install
+__pkg_config_checked_SERIAL:INTERNAL=1
 //ADVANCED property for variable: boost_headers_DIR
 boost_headers_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: gmock_build_tests

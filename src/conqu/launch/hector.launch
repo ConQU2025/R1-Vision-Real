@@ -1,0 +1,14 @@
+<launch>
+  <!-- 启动 hector_mapping 节点 -->
+  <node pkg="hector_mapping" type="hector_mapping" name="hector_mapping" output="screen">
+    <param name="map_resolution" value="0.05" />
+    <param name="map_size" value="1024" />
+    <param name="map_start_x" value="0.5" />
+    <param name="map_start_y" value="0.5" />
+    <param name="map_multi_res_levels" value="2" />
+  </node>
+
+  <!-- 发布 base_link 到 laser 的静态 tf -->
+  <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster"
+        args="0 0 0 0 0 0 base_link laser1 100" />
+</launch>

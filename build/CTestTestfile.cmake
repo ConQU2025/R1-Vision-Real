@@ -5,7 +5,7 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
-subdirs("conqu")
 subdirs("lidar/lsx10/lslidar")
 subdirs("lidar/lsx10/lslidar_msgs")
+subdirs("conqu")
 subdirs("lidar/lsx10/lslidar_driver")

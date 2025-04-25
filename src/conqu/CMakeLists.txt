@@ -7,8 +7,16 @@ project(conqu)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
-
+find_package(catkin REQUIRED COMPONENTS
+  roscpp
+  tf2_ros
+  geometry_msgs
+  std_msgs
+  serial
+  message_generation
+)
+find_package(PkgConfig)
+pkg_check_modules(SERIAL libserial)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -43,11 +51,10 @@ find_package(catkin REQUIRED)
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+add_message_files(
+  FILES
+  ByteArray.msg
+)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -64,10 +71,10 @@ find_package(catkin REQUIRED)
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs  # Or other packages containing msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -99,12 +106,12 @@ find_package(catkin REQUIRED)
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
+  CATKIN_DEPENDS roscpp std_msgs message_runtime
 #  INCLUDE_DIRS include
 #  LIBRARIES conqu
-#  CATKIN_DEPENDS other_catkin_pkg
+#  CATKIN_DEPENDS roscpp
 #  DEPENDS system_lib
 )
-
 ###########
 ## Build ##
 ###########
@@ -113,7 +120,7 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
 # include
-# ${catkin_INCLUDE_DIRS}
+ ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -200,3 +207,39 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+add_executable(serial_node src/serial.cpp)
+target_link_libraries(serial_node
+  ${catkin_LIBRARIES}
+  ${SERIAL_LIBRARIES}
+)
+add_dependencies(serial_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+add_executable(odometry src/odometry.cpp)
+target_link_libraries(odometry
+  ${catkin_LIBRARIES}
+  ${SERIAL_LIBRARIES}
+)
+add_dependencies(odometry ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+# 添加 serial_send 可执行文件
+add_executable(serial_send src/serial_sender.cpp)
+target_link_libraries(serial_send
+  ${catkin_LIBRARIES}
+)
+add_dependencies(serial_send ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+add_executable(data_pro src/data_process.cpp)
+target_link_libraries(data_pro
+  ${catkin_LIBRARIES}
+  ${SERIAL_LIBRARIES}
+)
+add_dependencies(data_pro ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_executable(calculate src/cal_vector.cpp)
+target_link_libraries(calculate
+  ${catkin_LIBRARIES}
+  ${SERIAL_LIBRARIES}
+)
+
+add_dependencies(calculate ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_executable(laser_tf_publisher src/laser_tf_publisher.cpp)
+target_link_libraries(laser_tf_publisher ${catkin_LIBRARIES})

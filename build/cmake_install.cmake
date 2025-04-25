@@ -131,9 +131,9 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/rc/R1_Vision_Real/build/gtest/cmake_install.cmake")
-  include("/home/rc/R1_Vision_Real/build/conqu/cmake_install.cmake")
   include("/home/rc/R1_Vision_Real/build/lidar/lsx10/lslidar/cmake_install.cmake")
   include("/home/rc/R1_Vision_Real/build/lidar/lsx10/lslidar_msgs/cmake_install.cmake")
+  include("/home/rc/R1_Vision_Real/build/conqu/cmake_install.cmake")
   include("/home/rc/R1_Vision_Real/build/lidar/lsx10/lslidar_driver/cmake_install.cmake")
 
 endif()
