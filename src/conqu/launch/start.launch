@@ -1,0 +1,16 @@
+<launch>
+    <!-- 1. 启动 LSLIDAR 激光雷达驱动 -->
+    <include file="$(find lslidar_driver)/launch/lslidar_serial.launch" />
+
+    <!-- 2. 启动 data.launch（数据处理节点） -->
+    <include file="$(find conqu)/launch/data.launch" />
+
+    <!-- 3. 启动 merge.launch（激光雷达融合） -->
+    <include file="$(find conqu)/launch/merge.launch" />
+
+    <!-- 4. 启动激光雷达 TF 发布节点 -->
+    <node pkg="conqu" type="laser_tf_publisher" name="laser_tf_publisher" output="screen" />
+
+    <!-- 5. 启动 RViz -->
+    <node pkg="rviz" type="rviz" name="rviz" output="screen" args="-d $(find conqu)/config/your_rviz_config.rviz" />
+</launch>

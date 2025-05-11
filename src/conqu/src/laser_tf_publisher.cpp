@@ -14,29 +14,29 @@ int main(int argc, char** argv) {
   while (ros::ok()) {
     ros::Time now = ros::Time::now();
 
-    // laser1 在 base_link 后方（-0.3m）
+    // laser1 在 base_link right方（-0.3m），旋转 -90°（顺时针）
     tf_laser1.header.stamp = now;
     tf_laser1.header.frame_id = "base_link";
     tf_laser1.child_frame_id = "laser1";
-    tf_laser1.transform.translation.x = -0.3;
-    tf_laser1.transform.translation.y = 0.0;
+    tf_laser1.transform.translation.x = 0.0;
+    tf_laser1.transform.translation.y = -0.3;
     tf_laser1.transform.translation.z = 0.0;
     tf_laser1.transform.rotation.x = 0.0;
     tf_laser1.transform.rotation.y = 0.0;
-    tf_laser1.transform.rotation.z = 0.0;
-    tf_laser1.transform.rotation.w = 1.0;
+    tf_laser1.transform.rotation.z = -0.707;
+    tf_laser1.transform.rotation.w = 0.707;
 
-    // laser2 在 base_link 前方（+0.3m）
+    // laser2 在 base_link left方（+0.3m），旋转 +90°（逆时针）
     tf_laser2.header.stamp = now;
     tf_laser2.header.frame_id = "base_link";
     tf_laser2.child_frame_id = "laser2";
-    tf_laser2.transform.translation.x = 0.3;
-    tf_laser2.transform.translation.y = 0.0;
+    tf_laser2.transform.translation.x = 0.0;
+    tf_laser2.transform.translation.y = 0.3;
     tf_laser2.transform.translation.z = 0.0;
     tf_laser2.transform.rotation.x = 0.0;
     tf_laser2.transform.rotation.y = 0.0;
-    tf_laser2.transform.rotation.z = 0.0;
-    tf_laser2.transform.rotation.w = 1.0;
+    tf_laser2.transform.rotation.z = 0.707;
+    tf_laser2.transform.rotation.w = 0.707;
 
     // 发布两个 TF
     br.sendTransform(tf_laser1);
