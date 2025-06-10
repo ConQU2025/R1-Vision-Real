@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/rc/R1_Vision_Real/devel/lib/liblslidar_driver.pdb"
-  "/home/rc/R1_Vision_Real/devel/lib/liblslidar_driver.so"
+  "/home/rc1/new/R1-Vision-Real/devel/lib/liblslidar_driver.pdb"
+  "/home/rc1/new/R1-Vision-Real/devel/lib/liblslidar_driver.so"
   "CMakeFiles/lslidar_driver.dir/src/lslidar_driver.cc.o"
 )
 

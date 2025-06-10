@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "/home/rc/R1_Vision_Real/devel/share/gennodejs/ros/lslidar_msgs/msg/LslidarDifop.js"
-  "/home/rc/R1_Vision_Real/devel/share/gennodejs/ros/lslidar_msgs/msg/LslidarPacket.js"
-  "/home/rc/R1_Vision_Real/devel/share/gennodejs/ros/lslidar_msgs/msg/LslidarPoint.js"
-  "/home/rc/R1_Vision_Real/devel/share/gennodejs/ros/lslidar_msgs/msg/LslidarScan.js"
-  "/home/rc/R1_Vision_Real/devel/share/gennodejs/ros/lslidar_msgs/msg/LslidarSweep.js"
+  "/home/rc1/new/R1-Vision-Real/devel/share/gennodejs/ros/lslidar_msgs/msg/LslidarDifop.js"
+  "/home/rc1/new/R1-Vision-Real/devel/share/gennodejs/ros/lslidar_msgs/msg/LslidarPacket.js"
+  "/home/rc1/new/R1-Vision-Real/devel/share/gennodejs/ros/lslidar_msgs/msg/LslidarPoint.js"
+  "/home/rc1/new/R1-Vision-Real/devel/share/gennodejs/ros/lslidar_msgs/msg/LslidarScan.js"
+  "/home/rc1/new/R1-Vision-Real/devel/share/gennodejs/ros/lslidar_msgs/msg/LslidarSweep.js"
   "CMakeFiles/lslidar_msgs_generate_messages_nodejs"
 )
 

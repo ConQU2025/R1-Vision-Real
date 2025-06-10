@@ -1,2 +1,2 @@
 conqu:lidar/lsx10/lslidar:lidar/lsx10/lslidar_driver:lidar/lsx10/lslidar_msgs
--DCATKIN_DEVEL_PREFIX=/home/rc/R1_Vision_Real/devel -DCMAKE_INSTALL_PREFIX=/home/rc/R1_Vision_Real/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/rc1/new/R1-Vision-Real/devel -DCMAKE_INSTALL_PREFIX=/home/rc1/new/R1-Vision-Real/install -G Unix Makefiles

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/rc/R1_Vision_Real/devel/lib/liblslidar_serial.pdb"
-  "/home/rc/R1_Vision_Real/devel/lib/liblslidar_serial.so"
+  "/home/rc1/new/R1-Vision-Real/devel/lib/liblslidar_serial.pdb"
+  "/home/rc1/new/R1-Vision-Real/devel/lib/liblslidar_serial.so"
   "CMakeFiles/lslidar_serial.dir/src/lsiosr.cpp.o"
 )
 

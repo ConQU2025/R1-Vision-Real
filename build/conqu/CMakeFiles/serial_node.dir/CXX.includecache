@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/rc/R1_Vision_Real/devel/include/conqu/ByteArray.h
+/home/rc1/new/R1-Vision-Real/devel/include/conqu/ByteArray.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/rc/R1_Vision_Real/src/conqu/src/serial.cpp
+/home/rc1/new/R1-Vision-Real/src/conqu/src/serial.cpp
 ros/ros.h
 -
 serial/serial.h

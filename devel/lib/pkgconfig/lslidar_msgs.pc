@@ -1,8 +1,8 @@
-prefix=/home/rc/R1_Vision_Real/devel
+prefix=/home/rc1/new/R1-Vision-Real/devel
 
 Name: lslidar_msgs
 Description: Description of lslidar_msgs
 Version: 1.2.0
-Cflags: -I/home/rc/R1_Vision_Real/devel/include
+Cflags: -I/home/rc1/new/R1-Vision-Real/devel/include
 Libs: -L${prefix}/lib 
 Requires: message_runtime std_msgs

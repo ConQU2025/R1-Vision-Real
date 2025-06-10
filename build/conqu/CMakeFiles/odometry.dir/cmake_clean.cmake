@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/rc/R1_Vision_Real/devel/lib/conqu/odometry"
-  "/home/rc/R1_Vision_Real/devel/lib/conqu/odometry.pdb"
+  "/home/rc1/new/R1-Vision-Real/devel/lib/conqu/odometry"
+  "/home/rc1/new/R1-Vision-Real/devel/lib/conqu/odometry.pdb"
   "CMakeFiles/odometry.dir/src/odometry.cpp.o"
 )
 

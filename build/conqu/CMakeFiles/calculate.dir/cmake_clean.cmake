@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/rc/R1_Vision_Real/devel/lib/conqu/calculate"
-  "/home/rc/R1_Vision_Real/devel/lib/conqu/calculate.pdb"
+  "/home/rc1/new/R1-Vision-Real/devel/lib/conqu/calculate"
+  "/home/rc1/new/R1-Vision-Real/devel/lib/conqu/calculate.pdb"
   "CMakeFiles/calculate.dir/src/cal_vector.cpp.o"
 )
 

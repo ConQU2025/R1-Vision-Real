@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "${prefix}/include".split(';') if "${prefix}/i
 PROJECT_CATKIN_DEPENDS = "message_runtime;std_msgs".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "lslidar_msgs"
-PROJECT_SPACE_DIR = "/home/rc/R1_Vision_Real/install"
+PROJECT_SPACE_DIR = "/home/rc1/new/R1-Vision-Real/install"
 PROJECT_VERSION = "1.2.0"

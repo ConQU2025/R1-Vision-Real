@@ -1,4 +1,4 @@
-prefix=/home/rc/R1_Vision_Real/install
+prefix=/home/rc1/new/R1-Vision-Real/install
 
 Name: lslidar_driver
 Description: Description of lslidar_driver

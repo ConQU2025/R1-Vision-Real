@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rc/R1_Vision_Real/src
+CMAKE_SOURCE_DIR = /home/rc1/new/R1-Vision-Real/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rc/R1_Vision_Real/build
+CMAKE_BINARY_DIR = /home/rc1/new/R1-Vision-Real/build
 
 # Utility rule file for conqu_geneus.
 
@@ -63,10 +63,10 @@ conqu/CMakeFiles/conqu_geneus.dir/build: conqu_geneus
 .PHONY : conqu/CMakeFiles/conqu_geneus.dir/build
 
 conqu/CMakeFiles/conqu_geneus.dir/clean:
-	cd /home/rc/R1_Vision_Real/build/conqu && $(CMAKE_COMMAND) -P CMakeFiles/conqu_geneus.dir/cmake_clean.cmake
+	cd /home/rc1/new/R1-Vision-Real/build/conqu && $(CMAKE_COMMAND) -P CMakeFiles/conqu_geneus.dir/cmake_clean.cmake
 .PHONY : conqu/CMakeFiles/conqu_geneus.dir/clean
 
 conqu/CMakeFiles/conqu_geneus.dir/depend:
-	cd /home/rc/R1_Vision_Real/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rc/R1_Vision_Real/src /home/rc/R1_Vision_Real/src/conqu /home/rc/R1_Vision_Real/build /home/rc/R1_Vision_Real/build/conqu /home/rc/R1_Vision_Real/build/conqu/CMakeFiles/conqu_geneus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/rc1/new/R1-Vision-Real/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rc1/new/R1-Vision-Real/src /home/rc1/new/R1-Vision-Real/src/conqu /home/rc1/new/R1-Vision-Real/build /home/rc1/new/R1-Vision-Real/build/conqu /home/rc1/new/R1-Vision-Real/build/conqu/CMakeFiles/conqu_geneus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : conqu/CMakeFiles/conqu_geneus.dir/depend
 

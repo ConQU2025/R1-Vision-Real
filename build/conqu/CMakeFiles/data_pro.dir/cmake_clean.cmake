@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/rc/R1_Vision_Real/devel/lib/conqu/data_pro"
-  "/home/rc/R1_Vision_Real/devel/lib/conqu/data_pro.pdb"
+  "/home/rc1/new/R1-Vision-Real/devel/lib/conqu/data_pro"
+  "/home/rc1/new/R1-Vision-Real/devel/lib/conqu/data_pro.pdb"
   "CMakeFiles/data_pro.dir/src/data_process.cpp.o"
 )
 

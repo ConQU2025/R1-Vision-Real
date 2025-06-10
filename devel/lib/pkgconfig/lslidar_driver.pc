@@ -1,8 +1,8 @@
-prefix=/home/rc/R1_Vision_Real/devel
+prefix=/home/rc1/new/R1-Vision-Real/devel
 
 Name: lslidar_driver
 Description: Description of lslidar_driver
 Version: 1.2.0
-Cflags: -I/home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar_driver/include
+Cflags: -I/home/rc1/new/R1-Vision-Real/src/lidar/lsx10/lslidar_driver/include
 Libs: -L${prefix}/lib 
 Requires: roscpp diagnostic_updater nodelet pcl_ros pcl_conversions lslidar_msgs

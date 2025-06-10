@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/rc/R1_Vision_Real/devel/share/gennodejs/ros/conqu/msg/ByteArray.js"
+  "/home/rc1/new/R1-Vision-Real/devel/share/gennodejs/ros/conqu/msg/ByteArray.js"
   "CMakeFiles/conqu_generate_messages_nodejs"
 )
 

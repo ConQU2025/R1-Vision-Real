@@ -1,8 +1,8 @@
-# Install script for directory: /home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar
+# Install script for directory: /home/rc1/new/R1-Vision-Real/src/lidar/lsx10/lslidar
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/rc/R1_Vision_Real/install")
+  set(CMAKE_INSTALL_PREFIX "/home/rc1/new/R1-Vision-Real/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,6 +38,6 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lslidar" TYPE FILE FILES "/home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lslidar" TYPE FILE FILES "/home/rc1/new/R1-Vision-Real/src/lidar/lsx10/lslidar/package.xml")
 endif()
 

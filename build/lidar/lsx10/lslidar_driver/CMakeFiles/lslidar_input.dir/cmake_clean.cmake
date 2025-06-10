@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/rc/R1_Vision_Real/devel/lib/liblslidar_input.pdb"
-  "/home/rc/R1_Vision_Real/devel/lib/liblslidar_input.so"
+  "/home/rc1/new/R1-Vision-Real/devel/lib/liblslidar_input.pdb"
+  "/home/rc1/new/R1-Vision-Real/devel/lib/liblslidar_input.so"
   "CMakeFiles/lslidar_input.dir/src/input.cc.o"
 )
 

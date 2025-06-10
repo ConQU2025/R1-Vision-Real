@@ -1,8 +1,8 @@
-# Install script for directory: /home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar_msgs
+# Install script for directory: /home/rc1/new/R1-Vision-Real/src/lidar/lsx10/lslidar_msgs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/rc/R1_Vision_Real/install")
+  set(CMAKE_INSTALL_PREFIX "/home/rc1/new/R1-Vision-Real/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,58 +39,58 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lslidar_msgs/msg" TYPE FILE FILES
-    "/home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar_msgs/msg/LslidarPacket.msg"
-    "/home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar_msgs/msg/LslidarPoint.msg"
-    "/home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar_msgs/msg/LslidarScan.msg"
-    "/home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar_msgs/msg/LslidarSweep.msg"
-    "/home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar_msgs/msg/LslidarDifop.msg"
+    "/home/rc1/new/R1-Vision-Real/src/lidar/lsx10/lslidar_msgs/msg/LslidarPacket.msg"
+    "/home/rc1/new/R1-Vision-Real/src/lidar/lsx10/lslidar_msgs/msg/LslidarPoint.msg"
+    "/home/rc1/new/R1-Vision-Real/src/lidar/lsx10/lslidar_msgs/msg/LslidarScan.msg"
+    "/home/rc1/new/R1-Vision-Real/src/lidar/lsx10/lslidar_msgs/msg/LslidarSweep.msg"
+    "/home/rc1/new/R1-Vision-Real/src/lidar/lsx10/lslidar_msgs/msg/LslidarDifop.msg"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lslidar_msgs/cmake" TYPE FILE FILES "/home/rc/R1_Vision_Real/build/lidar/lsx10/lslidar_msgs/catkin_generated/installspace/lslidar_msgs-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lslidar_msgs/cmake" TYPE FILE FILES "/home/rc1/new/R1-Vision-Real/build/lidar/lsx10/lslidar_msgs/catkin_generated/installspace/lslidar_msgs-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/rc/R1_Vision_Real/devel/include/lslidar_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/rc1/new/R1-Vision-Real/devel/include/lslidar_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/rc/R1_Vision_Real/devel/share/roseus/ros/lslidar_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/rc1/new/R1-Vision-Real/devel/share/roseus/ros/lslidar_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/rc/R1_Vision_Real/devel/share/common-lisp/ros/lslidar_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/rc1/new/R1-Vision-Real/devel/share/common-lisp/ros/lslidar_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/rc/R1_Vision_Real/devel/share/gennodejs/ros/lslidar_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/rc1/new/R1-Vision-Real/devel/share/gennodejs/ros/lslidar_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/rc/R1_Vision_Real/devel/lib/python3/dist-packages/lslidar_msgs")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/rc1/new/R1-Vision-Real/devel/lib/python3/dist-packages/lslidar_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/rc/R1_Vision_Real/devel/lib/python3/dist-packages/lslidar_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/rc1/new/R1-Vision-Real/devel/lib/python3/dist-packages/lslidar_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/rc/R1_Vision_Real/build/lidar/lsx10/lslidar_msgs/catkin_generated/installspace/lslidar_msgs.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/rc1/new/R1-Vision-Real/build/lidar/lsx10/lslidar_msgs/catkin_generated/installspace/lslidar_msgs.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lslidar_msgs/cmake" TYPE FILE FILES "/home/rc/R1_Vision_Real/build/lidar/lsx10/lslidar_msgs/catkin_generated/installspace/lslidar_msgs-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lslidar_msgs/cmake" TYPE FILE FILES "/home/rc1/new/R1-Vision-Real/build/lidar/lsx10/lslidar_msgs/catkin_generated/installspace/lslidar_msgs-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lslidar_msgs/cmake" TYPE FILE FILES
-    "/home/rc/R1_Vision_Real/build/lidar/lsx10/lslidar_msgs/catkin_generated/installspace/lslidar_msgsConfig.cmake"
-    "/home/rc/R1_Vision_Real/build/lidar/lsx10/lslidar_msgs/catkin_generated/installspace/lslidar_msgsConfig-version.cmake"
+    "/home/rc1/new/R1-Vision-Real/build/lidar/lsx10/lslidar_msgs/catkin_generated/installspace/lslidar_msgsConfig.cmake"
+    "/home/rc1/new/R1-Vision-Real/build/lidar/lsx10/lslidar_msgs/catkin_generated/installspace/lslidar_msgsConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lslidar_msgs" TYPE FILE FILES "/home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar_msgs/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lslidar_msgs" TYPE FILE FILES "/home/rc1/new/R1-Vision-Real/src/lidar/lsx10/lslidar_msgs/package.xml")
 endif()
 

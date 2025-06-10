@@ -67,14 +67,14 @@ set(lslidar_driver_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(lslidar_driver_SOURCE_PREFIX /home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar_driver)
-  set(lslidar_driver_DEVEL_PREFIX /home/rc/R1_Vision_Real/devel)
+  set(lslidar_driver_SOURCE_PREFIX /home/rc1/new/R1-Vision-Real/src/lidar/lsx10/lslidar_driver)
+  set(lslidar_driver_DEVEL_PREFIX /home/rc1/new/R1-Vision-Real/devel)
   set(lslidar_driver_INSTALL_PREFIX "")
   set(lslidar_driver_PREFIX ${lslidar_driver_DEVEL_PREFIX})
 else()
   set(lslidar_driver_SOURCE_PREFIX "")
   set(lslidar_driver_DEVEL_PREFIX "")
-  set(lslidar_driver_INSTALL_PREFIX /home/rc/R1_Vision_Real/install)
+  set(lslidar_driver_INSTALL_PREFIX /home/rc1/new/R1-Vision-Real/install)
   set(lslidar_driver_PREFIX ${lslidar_driver_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/rc/R1_Vision_Real/install/lib;/home/rc/ros_imu_ws/devel/lib;/home/rc/ros_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/rc1/new/R1-Vision-Real/install/lib;/home/rc1/catkin_ws/devel/lib;/home/rc1/lidar/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

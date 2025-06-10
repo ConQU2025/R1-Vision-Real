@@ -67,14 +67,14 @@ set(lslidar_driver_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(lslidar_driver_SOURCE_PREFIX /home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar_driver)
-  set(lslidar_driver_DEVEL_PREFIX /home/rc/R1_Vision_Real/devel)
+  set(lslidar_driver_SOURCE_PREFIX /home/rc1/new/R1-Vision-Real/src/lidar/lsx10/lslidar_driver)
+  set(lslidar_driver_DEVEL_PREFIX /home/rc1/new/R1-Vision-Real/devel)
   set(lslidar_driver_INSTALL_PREFIX "")
   set(lslidar_driver_PREFIX ${lslidar_driver_DEVEL_PREFIX})
 else()
   set(lslidar_driver_SOURCE_PREFIX "")
   set(lslidar_driver_DEVEL_PREFIX "")
-  set(lslidar_driver_INSTALL_PREFIX /home/rc/R1_Vision_Real/install)
+  set(lslidar_driver_INSTALL_PREFIX /home/rc1/new/R1-Vision-Real/install)
   set(lslidar_driver_PREFIX ${lslidar_driver_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(lslidar_driver_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar_driver/include " STREQUAL " ")
+if(NOT "/home/rc1/new/R1-Vision-Real/src/lidar/lsx10/lslidar_driver/include " STREQUAL " ")
   set(lslidar_driver_INCLUDE_DIRS "")
-  set(_include_dirs "/home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar_driver/include")
+  set(_include_dirs "/home/rc1/new/R1-Vision-Real/src/lidar/lsx10/lslidar_driver/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar_driver/include " STREQUA
         message(FATAL_ERROR "Project 'lslidar_driver' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'lslidar_driver' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/rc/R1_Vision_Real/src/lidar/lsx10/lslidar_driver/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'lslidar_driver' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/rc1/new/R1-Vision-Real/src/lidar/lsx10/lslidar_driver/${idir}'.  ${_report}")
     endif()
     _list_append_unique(lslidar_driver_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/rc/R1_Vision_Real/devel/lib;/home/rc/ros_imu_ws/devel/lib;/home/rc/ros_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/rc1/new/R1-Vision-Real/devel/lib;/home/rc1/catkin_ws/devel/lib;/home/rc1/lidar/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

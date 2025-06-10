@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/rc/R1_Vision_Real/devel/lib/conqu/laser_tf_publisher"
-  "/home/rc/R1_Vision_Real/devel/lib/conqu/laser_tf_publisher.pdb"
+  "/home/rc1/new/R1-Vision-Real/devel/lib/conqu/laser_tf_publisher"
+  "/home/rc1/new/R1-Vision-Real/devel/lib/conqu/laser_tf_publisher.pdb"
   "CMakeFiles/laser_tf_publisher.dir/src/laser_tf_publisher.cpp.o"
 )
 
