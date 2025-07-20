@@ -1,8 +1,0 @@
-prefix=/home/rc/R1_Vision_Real/install
-
-Name: conqu
-Description: Description of conqu
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: roscpp std_msgs message_runtime

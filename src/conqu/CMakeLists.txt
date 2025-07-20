@@ -14,9 +14,13 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   serial
   message_generation
+  cv_bridge
 )
 find_package(PkgConfig)
 pkg_check_modules(SERIAL libserial)
+
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(MICROHTTPD REQUIRED libmicrohttpd)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -121,6 +125,8 @@ catkin_package(
 include_directories(
 # include
  ${catkin_INCLUDE_DIRS}
+ ${SERIAL_INCLUDE_DIRS}
+ ${MICROHTTPD_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -239,6 +245,14 @@ target_link_libraries(calculate
   ${catkin_LIBRARIES}
   ${SERIAL_LIBRARIES}
 )
+# 相机画面传输节点
+add_executable(camera_deliver src/camera_deliver.cpp)
+target_link_libraries(camera_deliver
+  ${catkin_LIBRARIES}
+  ${SERIAL_LIBRARIES}
+  ${MICROHTTPD_LIBRARIES}
+)
+add_dependencies(camera_deliver ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 add_dependencies(calculate ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_executable(laser_tf_publisher src/laser_tf_publisher.cpp)
