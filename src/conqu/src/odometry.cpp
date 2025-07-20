@@ -7,6 +7,7 @@
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <cmath>
+#include <deque>
 
 class OdometryNode {
 private:
@@ -37,6 +38,16 @@ private:
     // 上一次的编码器值
     int last_left_encoder_ = 0;
     int last_right_encoder_ = 0;
+    
+    // 滤波相关参数
+    std::deque<double> vx_buffer_;
+    std::deque<double> vy_buffer_;
+    std::deque<double> vth_buffer_;
+    int buffer_size_ = 5;  // 滑动窗口大小
+    
+    // 噪声阈值
+    double velocity_threshold_ = 0.05;  // 速度变化阈值
+    double omega_threshold_ = 0.1;      // 角速度变化阈值
 
 public:
     OdometryNode() {
@@ -50,13 +61,44 @@ public:
         nh_.param("wheel_base", wheel_base_, 0.3);
         nh_.param("encoder_resolution", encoder_resolution_, 1000);
         nh_.param("encoder_to_meters", encoder_to_meters_, 0.001);
+        nh_.param("buffer_size", buffer_size_, 5);
+        nh_.param("velocity_threshold", velocity_threshold_, 0.05);
+        nh_.param("omega_threshold", omega_threshold_, 0.1);
 
         last_time_ = ros::Time::now();
     }
 
+    // 添加滑动平均滤波函数
+    double movingAverage(std::deque<double>& buffer, double new_value) {
+        // 检查是否是异常值
+        if (!buffer.empty()) {
+            double last_value = buffer.back();
+            // 如果变化太大，认为是噪声，对其进行修正
+            if (std::abs(new_value - last_value) > velocity_threshold_) {
+                new_value = last_value + (new_value > last_value ? velocity_threshold_ : -velocity_threshold_);
+            }
+        }
+        
+        // 更新缓冲区
+        buffer.push_back(new_value);
+        if (buffer.size() > buffer_size_) {
+            buffer.pop_front();
+        }
+        
+        // 计算平均值
+        double sum = 0.0;
+        for (const auto& val : buffer) {
+            sum += val;
+        }
+        return sum / buffer.size();
+    }
+
     void imuCallback(const sensor_msgs::Imu::ConstPtr& msg) {
-        // 更新角速度
-        vth_ = msg->angular_velocity.z;
+        // 获取原始角速度
+        double raw_vth = msg->angular_velocity.z;
+        
+        // 应用滑动平均滤波，减少角速度噪声
+        vth_ = movingAverage(vth_buffer_, raw_vth);
         
         // 更新朝向角度
         tf2::Quaternion q(
@@ -67,7 +109,14 @@ public:
         tf2::Matrix3x3 m(q);
         double roll, pitch, yaw;
         m.getRPY(roll, pitch, yaw);
-        theta_ = yaw;
+        
+        // 平滑角度变化
+        double theta_diff = yaw - theta_;
+        if (std::abs(theta_diff) > omega_threshold_) {
+            theta_ += (theta_diff > 0 ? omega_threshold_ : -omega_threshold_);
+        } else {
+            theta_ = yaw;
+        }
     }
 
     void encoderCallback(const std_msgs::Int32MultiArray::ConstPtr& msg) {
@@ -79,6 +128,16 @@ public:
         // 获取左右轮编码器值（假设第2个和第4个值是左右轮编码器值）
         int left_encoder = msg->data[1];
         int right_encoder = msg->data[3];
+
+        // 异常值检测，如果编码器数据跳变过大，则忽略
+        if (!first_time_) {
+            int max_encoder_jump = 1000; // 根据实际情况调整
+            if (std::abs(left_encoder - last_left_encoder_) > max_encoder_jump ||
+                std::abs(right_encoder - last_right_encoder_) > max_encoder_jump) {
+                ROS_WARN("Encoder jump too large, ignoring this update");
+                return;
+            }
+        }
 
         // 计算编码器增量
         int delta_left = left_encoder - last_left_encoder_;
@@ -96,21 +155,30 @@ public:
         double v = (left_distance + right_distance) / 2.0;  // 平均线速度
         double omega = (right_distance - left_distance) / wheel_base_;  // 角速度
 
-        // 计算x和y方向的速度
-        vx_ = v * cos(theta_);
-        vy_ = v * sin(theta_);
-
         // 更新时间
         ros::Time current_time = ros::Time::now();
         double dt = (current_time - last_time_).toSec();
-        if (dt == 0) return;  // 避免除以零
+        if (dt < 0.001) return;  // 避免除以非常小的值
         last_time_ = current_time;
 
-        // 更新位置
+        // 计算原始x和y方向的速度
+        double raw_vx = v * cos(theta_);
+        double raw_vy = v * sin(theta_);
+        
+        // 应用滑动平均滤波
+        vx_ = movingAverage(vx_buffer_, raw_vx);
+        vy_ = movingAverage(vy_buffer_, raw_vy);
+
+        // 更新位置（使用平滑后的速度）
         x_ += vx_ * dt;
         y_ += vy_ * dt;
-        theta_ += omega;
+        theta_ += vth_ * dt;
+        
+        // 确保theta_在[-pi, pi]范围内
+        theta_ = atan2(sin(theta_), cos(theta_));
 
+        first_time_ = false;
+        
         // 发布里程计消息
         publishOdometry(current_time);
     }
@@ -139,6 +207,20 @@ public:
         odom.twist.twist.linear.x = vx_;
         odom.twist.twist.linear.y = vy_;
         odom.twist.twist.angular.z = vth_;
+        
+        // 设置协方差矩阵（增加以提高稳定性）
+        for (int i = 0; i < 36; i++) {
+            odom.pose.covariance[i] = 0.0;
+            odom.twist.covariance[i] = 0.0;
+        }
+        // 位置协方差
+        odom.pose.covariance[0] = 0.01;  // x位置协方差
+        odom.pose.covariance[7] = 0.01;  // y位置协方差
+        odom.pose.covariance[35] = 0.01; // 角度协方差
+        // 速度协方差
+        odom.twist.covariance[0] = 0.01;  // x速度协方差
+        odom.twist.covariance[7] = 0.01;  // y速度协方差
+        odom.twist.covariance[35] = 0.01; // 角速度协方差
 
         // 发布里程计消息
         odom_pub_.publish(odom);

@@ -9,8 +9,20 @@
     <include file="$(find conqu)/launch/merge.launch" />
 
     <!-- 4. 启动激光雷达 TF 发布节点 -->
-    <node pkg="conqu" type="laser_tf_publisher" name="laser_tf_publisher" output="screen" />
+    <!-- <node pkg="conqu" type="laser_tf_publisher" name="laser_tf_publisher" output="screen" /> -->
 
-    <!-- 5. 启动 RViz -->
+    <!-- 5. 发布机器人 URDF（robot_state_publisher） -->
+    <param name="robot_description" command="$(find xacro)/xacro $(find conqu)/urdf/twolidar.urdf" />
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen">
+        <!-- 根据真实机器人硬件，发布关节状态 -->
+        <remap from="/joint_states" to="/real_joint_states" />
+    </node>
+
+    <!-- 6. 启动 RViz -->
     <node pkg="rviz" type="rviz" name="rviz" output="screen" args="-d $(find conqu)/config/your_rviz_config.rviz" />
+
+    <!-- 7. 加载静态地图（Desktop/real.yaml） -->
+    <node name="map_server" pkg="map_server" type="map_server" output="screen" args="$(env HOME)/Desktop/real.yaml" />
+
 </launch>
