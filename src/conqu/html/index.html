@@ -20,11 +20,11 @@
     </style>
 </head>
 <body>
-    <img id="camera-feed" src="http://198.168.8.178:8080" alt="摄像头画面">
+    <img id="camera-feed" src="http://localhost:8080" alt="摄像头画面">
     <script>
         const img = document.getElementById('camera-feed');
         setInterval(() => {
-            img.src = `http://192.168.8.178:8080?timestamp=${new Date().getTime()}`;
+            img.src = `http://rc-nuc.com:8080?timestamp=${new Date().getTime()}`;
         }, 100); // 每 100 毫秒刷新一次
     </script>
 </body>

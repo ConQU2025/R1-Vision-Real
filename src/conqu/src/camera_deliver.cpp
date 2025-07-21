@@ -15,6 +15,10 @@ std::vector<uchar> encode_frame() {
     std::lock_guard<std::mutex> lock(frame_mutex);
     std::vector<uchar> buffer;
     if (!frame.empty()) {
+
+
+
+        
         cv::imencode(".jpg", frame, buffer);
     }
     return buffer;
@@ -89,11 +93,11 @@ int main() {
             frame = temp_frame.clone();
         }
 
-        // 显示画面（可选）
-        cv::imshow("摄像头画面", temp_frame);
-        if (cv::waitKey(1) == 27) { // 按下 ESC 键退出
-            break;
-        }
+        // // 显示画面（可选）
+        // cv::imshow("摄像头画面", temp_frame);
+        // if (cv::waitKey(1) == 27) { // 按下 ESC 键退出
+        //     break;
+        // }
     }
 
     cap.release();

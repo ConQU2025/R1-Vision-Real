@@ -26,3 +26,4 @@
     <node name="map_server" pkg="map_server" type="map_server" output="screen" args="$(env HOME)/Desktop/real.yaml" />
 
 </launch>
+ 
